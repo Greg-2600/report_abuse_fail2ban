@@ -54,6 +54,7 @@ main() {
 	tail -f --follow=name ${log_file}| # read the file as it is updated and follow log rotate
 	grep --line-buffered "Ban"|        # only show Bans and use grep's line buffering mode 
 	while read ban; do                 # enter loop
+	
 		date=$(echo "$ban"|awk {'print $1'}) # assign date
 		time=$(echo "$ban"|awk {'print $2'}) # assign time
 		ip=$(echo "$ban"  |awk {'print $8'}) # assign IP
