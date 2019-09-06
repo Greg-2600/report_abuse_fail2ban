@@ -56,7 +56,7 @@ main() {
 	while read ban; do                 # enter loop
 		date=$(echo "$ban"|awk {'print $1'}) # assign date
 		time=$(echo "$ban"|awk {'print $2'}) # assign time
-		ip=$(echo "$ban"|awk {'print $8'})   # assign IP
+		ip=$(echo "$ban"  |awk {'print $8'}) # assign IP
 
 		abuse_email=$(get_abuse_email $ip)   # try to lookup abuse contact
 		if [ "$abuse_email" ]; then          # if there is an abuse contact	
